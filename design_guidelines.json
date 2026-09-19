@@ -1,0 +1,154 @@
+{
+  "brand": {
+    "name": "Magnrey Consulting",
+    "tagline": "Transformation Led by Experience",
+    "positioning": "Boutique AI & Digital People (HCM) Consulting Firm for CHROs, CPOs, and Enterprise Transformation Executives",
+    "archetype": "Editorial Executive & High-Tech Precision Hybrid",
+    "founder": {
+      "name": "Rinnieta Chrestien",
+      "title": "Founding Partner",
+      "background": "Former VP HR at Salesforce, 18+ years enterprise transformation",
+      "quote": "We redesign People organisations around AI-native architecture — with Digital infrastructure as the operational backbone to position the People Function as a primary driver of enterprise value.",
+      "image_url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxleGVjdXRpdmUlMjBidXNpbmVzc3dvbWFuJTIwcG9ydHJhaXQlMjBjb3Jwb3JhdGUlMjBsZWFkZXJ8ZW58MHx8fHwxNzg5ODAyMTA5fDA&ixlib=rb-4.1.0&q=85"
+    },
+    "contact_email": "enquiry@magnrey.com"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace",
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif font-light tracking-tight leading-[1.1]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif font-normal tracking-tight text-slate-900 dark:text-slate-100",
+      "h3": "text-xl sm:text-2xl font-sans font-semibold text-slate-900 dark:text-slate-100",
+      "h4": "text-lg sm:text-xl font-sans font-medium text-slate-800 dark:text-slate-200",
+      "overline": "text-xs font-mono uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-semibold",
+      "body": "text-base font-sans text-slate-600 dark:text-slate-300 leading-relaxed"
+    }
+  },
+  "colors": {
+    "mode": "light_with_dark_toggle",
+    "primary": "#0B132B",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#1C2541",
+    "accent_gold": "#C88A58",
+    "accent_gold_hover": "#B37645",
+    "muted_slate": "#64748B",
+    "bg_light": "#F8F9FA",
+    "bg_dark": "#0B132B",
+    "card_bg_light": "#FFFFFF",
+    "card_bg_dark": "#151B28",
+    "border_light": "rgba(15, 23, 42, 0.08)",
+    "border_dark": "rgba(255, 255, 255, 0.12)"
+  },
+  "layout": {
+    "spacing_philosophy": "Generous executive whitespace (py-20 lg:py-32, max-w-7xl centered container)",
+    "grid_mode": "Swiss Asymmetric Grid & Modular Bento for Pillars/Framework",
+    "header": {
+      "style": "Fixed Glassmorphism with backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/50 dark:border-slate-800/50 z-50",
+      "links": [
+        "Home",
+        "Why Us",
+        "Services",
+        "Case Studies",
+        "Framework",
+        "Insights",
+        "About",
+        "Contact"
+      ],
+      "primary_cta": "Book Diagnostic Session"
+    }
+  },
+  "page_blueprints": {
+    "Home": {
+      "hero": {
+        "eyebrow": "AI-NATIVE HCM CONSULTING FOR ENTERPRISE LEADERS",
+        "headline_kinetic": "Transformation Led by Experience.",
+        "subheadline": "We redesign People organisations around AI-native architecture — with Digital infrastructure as the operational backbone to position the People Function as a primary driver of enterprise value.",
+        "ctas": [
+          { "label": "Book 45-Min Executive Diagnostic", "action": "open_modal", "variant": "primary" },
+          { "label": "Explore Our Framework", "action": "scroll_to_framework", "variant": "outline" }
+        ],
+        "metrics_strip": [
+          { "label": "Combined HR Transformation Experience", "value": "18+ Yrs" },
+          { "label": "Enterprise Systems Coverage", "value": "Dayforce & Workday" },
+          { "label": "Enterprise Value Focus", "value": "AI-Native HCM" },
+          { "label": "Satisfaction Outcome Metric", "value": "100% Exec Led" }
+        ]
+      },
+      "sections": [
+        "Hero with kinetic wordmark",
+        "Executive Proof Banner (Salesforce, Workday, Dayforce, Enterprise HCM logos/badges)",
+        "Strategic Pillars Grid (4 Bento Cards: Boutique by Design, AI-Native Thinking, Outcome-Oriented, End-to-End Expertise)",
+        "Interactive 5-Stage Framework (Immersion -> Blueprint -> Sequence -> Build & Deploy -> Evolve & Pulse)",
+        "Services Overview Grid (AI & Digital Advisory, Project Advisory, Systems Implementation)",
+        "Founder Spotlight (Rinnieta Chrestien Quote & Experience)",
+        "Case Studies Teaser & Outcomes Metrics",
+        "Executive Diagnostic Lead Capture & Newsletter Form"
+      ]
+    },
+    "WhyUs": {
+      "sections": [
+        "Header & Narrative Banner: Why Magnrey?",
+        "Comparison Matrix: Traditional Consulting vs Magnrey Boutique Exec Model",
+        "Founding Leadership Philosophy",
+        "Client Impact Telemetry & Testimonials"
+      ]
+    },
+    "Services": {
+      "sections": [
+        "Detailed Service Breakdown (AI & Digital Advisory, Project Advisory, Systems Implementation Dayforce & Workday)",
+        "Deliverables & Implementation Scenarios",
+        "Request Proposal CTA"
+      ]
+    },
+    "Framework": {
+      "sections": [
+        "Deep-dive into 5-Stage Transformation Protocol",
+        "Interactive Stage Explorer with Key Deliverables & Timelines per stage"
+      ]
+    },
+    "CaseStudies": {
+      "sections": [
+        "Filtered Case Studies Grid (AI Integration, HCM Modernization, Workday/Dayforce Advisory)",
+        "Detailed Case Study Modal / Drawer preview with Challenge, Solution, Enterprise Value Created"
+      ]
+    },
+    "Insights": {
+      "sections": [
+        "Thought Leadership Articles for CHROs & CPOs",
+        "Article Reader Drawer / View",
+        "Newsletter Subscription Box"
+      ]
+    },
+    "About": {
+      "sections": [
+        "Firm Mission & Vision",
+        "Founder Profile: Rinnieta Chrestien (former VP HR at Salesforce)",
+        "Advisory Council & Strategic Philosophy"
+      ]
+    },
+    "Contact": {
+      "sections": [
+        "45-Min Strategic Diagnostic Booking Calendar Form",
+        "Direct Enquiry Email (enquiry@magnrey.com)",
+        "Office Location / Global Operating Model info"
+      ]
+    }
+  },
+  "image_urls": {
+    "founder_portrait": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwyfHxleGVjdXRpdmUlMjBidXNpbmVzc3dvbWFuJTIwcG9ydHJhaXQlMjBjb3Jwb3JhdGUlMjBsZWFkZXJ8ZW58MHx8fHwxNzg5ODAyMTA5fDA&ixlib=rb-4.1.0&q=85",
+    "architecture_hero": "https://images.unsplash.com/photo-1528810289438-283f885c31ef?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmFsJTIwc2t5c2NyYXBlciUyMGdsYXNzJTIwc3RlZWwlMjBtaW5pbWFsfGVufDB8fHx8MTc4OTgwMjEwOXww&ixlib=rb-4.1.0&q=85",
+    "office_editorial": "https://images.unsplash.com/photo-1490800869828-a00247402454?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmFsJTIwc2t5c2NyYXBlciUyMGdsYXNzJTIwc3RlZWwlMjBtaW5pbWFsfGVufDB8fHx8MTc4OTgwMjEwOXww&ixlib=rb-4.1.0&q=85"
+  },
+  "testing_and_accessibility": {
+    "data_testid_convention": "All interactive elements, forms, filters, modals, navigation items, diagnostic submit buttons MUST have kebab-case data-testid attributes (e.g. data-testid=\"nav-link-why-us\", data-testid=\"diagnostic-booking-submit\", data-testid=\"framework-stage-immersion\")."
+  },
+  "instructions_to_main_agent": [
+    "Ensure the design radiates top-tier executive consulting authority (McKinsey / Bain editorial feel with modern AI precision).",
+    "All navigation links and page routing (Home, Why Us, Services, Case Studies, Insights, About, Contact) must be fully functional.",
+    "Implement the 45-min diagnostic booking workflow as an interactive multi-step modal and standalone contact form with instant confirmation toasts using Sonner.",
+    "Support a light/dark theme toggle seamlessly with smooth contrast transitions.",
+    "Include data-testid on every interactive button, input, tab, card, and link."
+  ]
+}
