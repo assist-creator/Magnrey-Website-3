@@ -107,7 +107,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container-mag mt-32">
+        <div className="container-mag mt-40 md:mt-48 pt-12 border-t border-[color:var(--hairline)]">
           <div className="rule-label mb-8"><span>Our Clients</span></div>
           <div className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
             <div className="marquee-track flex gap-4 w-max" data-testid="clients-marquee">
