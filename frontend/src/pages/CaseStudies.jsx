@@ -42,7 +42,7 @@ export default function CaseStudies() {
         eyebrow="Documented Outcomes"
         title="Measured impact across"
         italicTail="the enterprise."
-        description="Four representative engagements — anonymised at the client's request. Every outcome below has been verified by the client sponsor and, where applicable, by third-party audit."
+        description="We have partnered with our clients to deliver business outcomes — proof of what disciplined AI and Digital transformation delivers when it's led by practitioners."
       />
 
       <section className="py-10 border-b border-[color:var(--hairline)]">
