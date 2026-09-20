@@ -60,7 +60,7 @@ export function PageHero({ eyebrow, kicker, title, italicTail, description }) {
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1 className="font-serif-display font-normal tracking-tight leading-[1.05] mt-6 text-4xl md:text-6xl lg:text-7xl text-[color:var(--ink)]">
             {title}
-            {italicTail && <><br/><em className="text-[color:var(--gold)] not-italic font-serif-display italic">{italicTail}</em></>}
+            {italicTail && <><br/><em className="text-[color:var(--gold)] font-serif-display italic">{italicTail}</em></>}
           </h1>
           {description && (
             <p className="mt-6 text-[17px] md:text-[18px] leading-[1.7] text-[color:var(--muted)] max-w-2xl">{description}</p>

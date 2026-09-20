@@ -258,7 +258,7 @@ export default function Home() {
               <div className="lg:col-span-8">
                 <Eyebrow>How to Engage</Eyebrow>
                 <h2 className="font-serif-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mt-6 text-[color:var(--bone)]">
-                  Begin the <em className="text-[color:var(--gold)] not-italic italic">conversation.</em>
+                  Begin the <em className="text-[color:var(--gold)] italic">conversation.</em>
                 </h2>
                 <p className="text-white/70 mt-6 max-w-xl text-[16px] leading-relaxed">
                   Every partnership begins with a 45-minute diagnostic. A precision-focused session to understand your digital maturity and identify the AI opportunities that will move the needle for your People organisation.

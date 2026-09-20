@@ -42,11 +42,10 @@ export default function Insights() {
   return (
     <div data-testid="page-insights">
       <PageHero
-        kicker="006 — Insights"
-        eyebrow="Thought Leadership"
-        title="Field notes from"
-        italicTail="the transformation front line."
-        description="Perspective built from decades of enterprise mandates — written for CHROs, Chief People Officers, and executive committee members navigating AI-native change."
+        eyebrow="Insights"
+        title="Perspectives."
+        italicTail="Practical and Actionable."
+        description="Real stories and actionable playbooks from leaders who have been in the trenches. No trend-chasing buzzwords, just what actually works when execution matters."
       />
 
       <section className="py-14 md:py-16 border-b border-[color:var(--hairline)]">

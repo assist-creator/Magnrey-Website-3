@@ -167,7 +167,7 @@ export default function About() {
           <div>
             <Eyebrow>Firm Mandate</Eyebrow>
             <h3 className="font-serif-display text-3xl md:text-5xl text-[color:var(--bone)] mt-4 leading-tight">
-              We founded Magnrey to bridge <em className="italic text-[color:var(--gold)] not-italic">the practitioner gap.</em>
+              We founded Magnrey to bridge <em className="italic text-[color:var(--gold)]">the practitioner gap.</em>
             </h3>
           </div>
           <div className="space-y-5 text-white/70 text-[15px] leading-[1.8]">

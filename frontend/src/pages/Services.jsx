@@ -127,7 +127,7 @@ export default function Services() {
           <h2 className="font-serif-display text-4xl md:text-6xl mt-6 text-[color:var(--ink)] leading-tight">
             Every mandate begins with a
             <br />
-            <em className="not-italic italic text-[color:var(--gold)]">45-minute diagnostic.</em>
+            <em className="italic text-[color:var(--gold)]">45-minute diagnostic.</em>
           </h2>
           <p className="text-[color:var(--muted)] mt-6 leading-relaxed">
             No obligation. No junior handoffs. You speak directly with a senior practitioner from day one.
