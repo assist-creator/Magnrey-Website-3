@@ -66,10 +66,9 @@ export default function Services() {
   return (
     <div data-testid="page-services">
       <PageHero
-        kicker="003 — Services"
-        eyebrow="What We Do"
-        title="Three integrated capabilities."
-        italicTail="One senior-led operating model."
+        eyebrow="Services"
+        title="Three Key Services."
+        italicTail="One Transformation."
         description="A boutique practice built to deliver AI-native transformation from strategy through to operational reality — with the discipline of tier-one delivery and the intimacy of a boutique."
       />
 
