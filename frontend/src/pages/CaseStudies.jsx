@@ -38,10 +38,9 @@ export default function CaseStudies() {
   return (
     <div data-testid="page-case-studies">
       <PageHero
-        kicker="005 — Case Studies"
-        eyebrow="Documented Outcomes"
-        title="Measured impact across"
-        italicTail="the enterprise."
+        eyebrow="Case Studies"
+        title="Success."
+        italicTail="Delivered."
         description="We have partnered with our clients to deliver business outcomes — proof of what disciplined AI and Digital transformation delivers when it's led by practitioners."
       />
 
