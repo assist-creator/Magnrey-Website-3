@@ -52,11 +52,10 @@ export default function Framework() {
   return (
     <div data-testid="page-framework">
       <PageHero
-        kicker="004 — Delivery Framework"
-        eyebrow="The Delivery Engine"
-        title="The Immersion-to-Evolve"
-        italicTail="framework."
-        description="Our delivery model is built on co-design and co-delivery. We don't deliver to you; we build with you. Five disciplined stages, engineered to translate AI ambition into verifiable enterprise value."
+        eyebrow="How We Deliver Success"
+        title="Tailored Approach."
+        italicTail="Proven Method."
+        description="Our delivery model is built on co-design and co-delivery. We don&rsquo;t deliver to you; we build with you. Five disciplined stages, engineered to translate AI ambition into verifiable enterprise value."
       />
 
       <section className="py-16 md:py-24">
