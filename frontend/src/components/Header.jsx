@@ -38,7 +38,7 @@ export default function Header() {
           <img
             src="/brand/logo.png"
             alt="Magnrey Consulting"
-            className="h-9 md:h-10 w-auto object-contain"
+            className="h-9 md:h-10 w-auto object-contain mix-blend-multiply"
           />
         </Link>
 

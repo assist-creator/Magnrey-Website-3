@@ -32,9 +32,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[color:var(--bone)] px-3 py-2 inline-flex items-center justify-center">
-                <img src="/brand/logo.png" alt="Magnrey Consulting" className="h-8 w-auto object-contain" />
-              </div>
+              <img src="/brand/logo.png" alt="Magnrey Consulting" className="h-9 w-auto object-contain invert" />
             </div>
             <p className="font-serif-display italic text-2xl leading-snug max-w-md text-[color:var(--bone)]">
               Transformation, led by <span className="text-[color:var(--gold)]">experience.</span>
