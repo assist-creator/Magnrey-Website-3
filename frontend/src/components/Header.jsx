@@ -35,14 +35,11 @@ export default function Header() {
     >
       <div className="container-mag flex items-center justify-between h-20">
         <Link to="/" data-testid="nav-logo" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 border border-[color:var(--ink)] flex items-center justify-center font-serif-display text-[color:var(--ink)] text-lg leading-none">
-            M
-            <span className="text-[color:var(--gold)]">.</span>
-          </div>
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-serif-display text-[19px] tracking-tight text-[color:var(--ink)]">Magnrey</span>
-            <span className="font-mono-brand text-[9px] tracking-[0.28em] text-[color:var(--muted)] uppercase">AI · Digital · People</span>
-          </div>
+          <img
+            src="/brand/logo.png"
+            alt="Magnrey Consulting"
+            className="h-9 md:h-10 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" data-testid="primary-nav">

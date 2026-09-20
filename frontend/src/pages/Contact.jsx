@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { PageHero, Eyebrow } from "@/components/Primitives";
-import { ArrowUpRight, Mail, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Mail, Clock, ShieldCheck, CheckCircle2, Calendar } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -27,8 +27,19 @@ export default function Contact() {
     interest: INTERESTS[0],
     message: "",
   });
+  const [slots, setSlots] = useState([]);
+  const [slotIso, setSlotIso] = useState(null);
   const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get(`${API}/booking/slots`);
+        setSlots(res.data.slots || []);
+      } catch { /* soft-fail */ }
+    })();
+  }, []);
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -36,16 +47,23 @@ export default function Contact() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await axios.post(`${API}/leads`, form);
+      const res = await axios.post(`${API}/leads`, { ...form, slot: slotIso });
       toast.success("Received. A senior practitioner will be in touch within 48 hours.");
-      setDone(true);
+      setDone({ lead: res.data, slot: slotIso });
     } catch (err) {
-      const msg = err?.response?.data?.detail?.[0]?.msg || "Something went wrong. Please try again or email us directly.";
-      toast.error(typeof msg === "string" ? msg : "Please review the form and try again.");
+      const detail = err?.response?.data?.detail;
+      const msg = typeof detail === "string" ? detail : "Please review the form and try again.";
+      toast.error(msg);
     } finally {
       setSubmitting(false);
     }
   };
+
+  // Group slots by date_label
+  const grouped = slots.reduce((acc, s) => {
+    (acc[s.date_label] = acc[s.date_label] || []).push(s);
+    return acc;
+  }, {});
 
   return (
     <div data-testid="page-contact">
@@ -61,9 +79,9 @@ export default function Contact() {
         <div className="container-mag grid grid-cols-1 lg:grid-cols-12 gap-12">
           <aside className="lg:col-span-4 order-2 lg:order-1">
             <div className="rule-label mb-6"><span>Direct</span></div>
-            <a href="mailto:enquiry@magnrey.com" data-testid="contact-email" className="flex items-center gap-3 text-[color:var(--ink)] hover:text-[color:var(--gold)] transition-colors">
+            <a href="mailto:assist@magnrey.com" data-testid="contact-email" className="flex items-center gap-3 text-[color:var(--ink)] hover:text-[color:var(--gold)] transition-colors">
               <Mail size={18} strokeWidth={1.5} />
-              <span className="font-serif-display text-2xl">enquiry@magnrey.com</span>
+              <span className="font-serif-display text-2xl">assist@magnrey.com</span>
             </a>
             <p className="text-[14px] text-[color:var(--muted)] mt-2 max-w-xs">Direct line to the founding partner. Every enquiry read personally.</p>
 
@@ -91,8 +109,17 @@ export default function Contact() {
                 <h2 className="font-serif-display text-4xl md:text-5xl mt-6 text-[color:var(--bone)] leading-tight">
                   Thank you. Your enquiry has been logged.
                 </h2>
+                {done.slot && (
+                  <div className="mt-6 border border-[color:var(--gold)]/40 p-5 bg-white/5">
+                    <div className="eyebrow">Provisional slot held</div>
+                    <div className="font-serif-display text-2xl md:text-3xl text-[color:var(--bone)] mt-2">
+                      {new Date(done.slot).toLocaleString("en-GB", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}
+                    </div>
+                    <p className="text-white/60 text-[13px] mt-2 font-mono-brand tracking-wider uppercase">Calendar invite arriving within 24 hours</p>
+                  </div>
+                )}
                 <p className="text-white/70 mt-6 max-w-lg">
-                  A senior practitioner will review your context and respond within 48 hours to schedule your diagnostic session. In the interim, feel free to explore our framework or recent field notes.
+                  A senior practitioner will review your context and respond within 48 hours to confirm your diagnostic session. In the interim, feel free to explore our framework or recent field notes.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a href="/framework" className="btn-gold">Enter Framework <ArrowUpRight size={14} /></a>
@@ -141,11 +168,55 @@ export default function Contact() {
                       data-testid="input-message"
                       value={form.message}
                       onChange={(e) => update("message", e.target.value)}
-                      rows={5}
+                      rows={4}
                       placeholder="Where is your People organisation today? What outcome would define success?"
                       className="input-field resize-none"
                     />
                   </div>
+                </div>
+
+                {/* Calendar slot picker */}
+                <div className="mt-10 pt-8 border-t border-[color:var(--hairline)]" data-testid="slot-picker">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="rule-label"><span>Pick a slot</span></span>
+                      <p className="text-[13px] text-[color:var(--muted)] mt-2 max-w-md">Choose a preferred time. Slots are held provisionally — we will confirm within 24 hours.</p>
+                    </div>
+                    <Calendar size={20} className="text-[color:var(--gold)]" strokeWidth={1.5} />
+                  </div>
+
+                  {slots.length === 0 ? (
+                    <p className="text-[13px] text-[color:var(--muted)]">Loading available slots…</p>
+                  ) : (
+                    <div className="space-y-4">
+                      {Object.entries(grouped).map(([day, list]) => (
+                        <div key={day} className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 items-center">
+                          <div className="font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)]">{day}</div>
+                          <div className="flex flex-wrap gap-2">
+                            {list.map((s) => {
+                              const selected = slotIso === s.iso;
+                              return (
+                                <button
+                                  key={s.iso}
+                                  type="button"
+                                  data-testid={`slot-${s.iso}`}
+                                  onClick={() => setSlotIso(selected ? null : s.iso)}
+                                  className={`px-4 py-2 border text-[13px] transition-all ${
+                                    selected
+                                      ? "bg-[color:var(--ink)] text-[color:var(--gold)] border-[color:var(--ink)]"
+                                      : "bg-white border-[color:var(--hairline-strong)] text-[color:var(--ink)] hover:border-[color:var(--ink)]"
+                                  }`}
+                                >
+                                  {s.time_label}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-[11px] text-[color:var(--muted)] mt-4 font-mono-brand tracking-wider uppercase">Slot optional — we&rsquo;ll propose alternatives if left blank</p>
                 </div>
 
                 <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4 justify-between">

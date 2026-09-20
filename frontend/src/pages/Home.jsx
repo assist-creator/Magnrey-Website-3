@@ -185,9 +185,9 @@ export default function Home() {
               <div className="aspect-[4/5] w-full overflow-hidden border border-[color:var(--hairline-strong)]">
                 <img
                   data-testid="founder-portrait"
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&w=900&q=80"
+                  src="/brand/founder.webp"
                   alt="Rinnieta Chrestien, Founding Partner"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
             </div>
@@ -231,8 +231,8 @@ export default function Home() {
                 <Link to="/contact" data-testid="cta-band-book" className="btn-gold justify-center">
                   Book 45-Min Diagnostic <ArrowUpRight size={16} />
                 </Link>
-                <a href="mailto:enquiry@magnrey.com" className="btn-outline !border-white/20 !text-[color:var(--bone)] justify-center hover:!bg-white/10">
-                  enquiry@magnrey.com
+                <a href="mailto:assist@magnrey.com" className="btn-outline !border-white/20 !text-[color:var(--bone)] justify-center hover:!bg-white/10">
+                  assist@magnrey.com
                 </a>
               </div>
             </div>

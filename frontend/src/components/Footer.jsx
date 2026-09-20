@@ -32,12 +32,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 border border-[color:var(--gold)] flex items-center justify-center font-serif-display text-[color:var(--bone)] text-xl">
-                M<span className="text-[color:var(--gold)]">.</span>
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="font-serif-display text-xl">Magnrey Consulting</span>
-                <span className="font-mono-brand text-[10px] tracking-[0.28em] text-white/50 uppercase">AI · Digital · People</span>
+              <div className="bg-[color:var(--bone)] px-3 py-2 inline-flex items-center justify-center">
+                <img src="/brand/logo.png" alt="Magnrey Consulting" className="h-8 w-auto object-contain" />
               </div>
             </div>
             <p className="font-serif-display italic text-2xl leading-snug max-w-md text-[color:var(--bone)]">
@@ -94,11 +90,11 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <span className="field-label">Direct</span>
             <a
-              href="mailto:enquiry@magnrey.com"
+              href="mailto:assist@magnrey.com"
               data-testid="footer-email-link"
               className="mt-3 flex items-center gap-2 text-[color:var(--bone)] hover:text-[color:var(--gold)] text-[15px]"
             >
-              <Mail size={14} /> enquiry@magnrey.com
+              <Mail size={14} /> assist@magnrey.com
             </a>
             <p className="text-white/50 text-[13px] mt-4 leading-relaxed">
               Every partnership begins with a 45-minute diagnostic conversation. No obligation. Senior-led from day one.
@@ -116,7 +112,7 @@ export default function Footer() {
           <div className="flex gap-6">
             <a href="#" className="hover:text-white/80">Privacy</a>
             <a href="#" className="hover:text-white/80">Terms</a>
-            <a href="mailto:enquiry@magnrey.com" className="hover:text-[color:var(--gold)]">Contact</a>
+            <a href="mailto:assist@magnrey.com" className="hover:text-[color:var(--gold)]">Contact</a>
           </div>
         </div>
       </div>

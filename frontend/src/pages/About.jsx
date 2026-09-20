@@ -34,9 +34,9 @@ export default function About() {
             <div className="aspect-[4/5] w-full overflow-hidden border border-[color:var(--hairline-strong)]">
               <img
                 data-testid="about-founder-portrait"
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&w=1000&q=85"
+                src="/brand/founder.webp"
                 alt="Rinnieta Chrestien, Founding Partner"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div className="mt-6 flex items-center justify-between">
@@ -44,7 +44,7 @@ export default function About() {
                 <div className="font-serif-display text-2xl text-[color:var(--ink)]">Rinnieta Chrestien</div>
                 <div className="font-mono-brand text-[11px] tracking-[0.24em] uppercase text-[color:var(--gold)] mt-2">Founding Partner</div>
               </div>
-              <a href="mailto:enquiry@magnrey.com" className="editorial-link text-[13px] font-semibold text-[color:var(--ink)]">
+              <a href="mailto:assist@magnrey.com" className="editorial-link text-[13px] font-semibold text-[color:var(--ink)]">
                 Direct enquiry <ArrowUpRight size={14} />
               </a>
             </div>

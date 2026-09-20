@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { PageHero, Eyebrow } from "@/components/Primitives";
 import { Link } from "react-router-dom";
@@ -11,6 +11,8 @@ export default function CaseStudies() {
   const [cases, setCases] = useState([]);
   const [active, setActive] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [sector, setSector] = useState("All Sectors");
+  const [engagement, setEngagement] = useState("All Engagements");
 
   useEffect(() => {
     (async () => {
@@ -23,6 +25,16 @@ export default function CaseStudies() {
     })();
   }, []);
 
+  const sectors = useMemo(() => ["All Sectors", ...Array.from(new Set(cases.map((c) => c.sector)))], [cases]);
+  const engagements = useMemo(() => ["All Engagements", ...Array.from(new Set(cases.map((c) => c.engagement)))], [cases]);
+
+  const filtered = cases.filter((c) =>
+    (sector === "All Sectors" || c.sector === sector) &&
+    (engagement === "All Engagements" || c.engagement === engagement)
+  );
+
+  const resetFilters = () => { setSector("All Sectors"); setEngagement("All Engagements"); };
+
   return (
     <div data-testid="page-case-studies">
       <PageHero
@@ -33,13 +45,61 @@ export default function CaseStudies() {
         description="Four representative engagements — anonymised at the client's request. Every outcome below has been verified by the client sponsor and, where applicable, by third-party audit."
       />
 
+      <section className="py-10 border-b border-[color:var(--hairline)]">
+        <div className="container-mag grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-4 items-end">
+          <div>
+            <label className="field-label">Sector</label>
+            <select
+              data-testid="case-filter-sector"
+              value={sector}
+              onChange={(e) => setSector(e.target.value)}
+              className="input-field"
+            >
+              {sectors.map((s) => <option key={s}>{s}</option>)}
+            </select>
+          </div>
+          <div>
+            <label className="field-label">Engagement Type</label>
+            <select
+              data-testid="case-filter-engagement"
+              value={engagement}
+              onChange={(e) => setEngagement(e.target.value)}
+              className="input-field"
+            >
+              {engagements.map((s) => <option key={s}>{s}</option>)}
+            </select>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)]">
+              {filtered.length} of {cases.length}
+            </span>
+            {(sector !== "All Sectors" || engagement !== "All Engagements") && (
+              <button
+                data-testid="case-filter-reset"
+                onClick={resetFilters}
+                className="text-[12px] font-mono-brand tracking-[0.18em] uppercase text-[color:var(--ink)] hover:text-[color:var(--gold)]"
+              >
+                Reset
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24">
         <div className="container-mag">
           {loading ? (
             <div className="text-[color:var(--muted)]">Loading dossiers…</div>
+          ) : filtered.length === 0 ? (
+            <div className="border border-dashed border-[color:var(--hairline-strong)] p-16 text-center" data-testid="case-empty">
+              <Eyebrow>No dossiers matched</Eyebrow>
+              <h3 className="font-serif-display text-2xl md:text-3xl mt-4 text-[color:var(--ink)]">Nothing in this combination.</h3>
+              <p className="text-[color:var(--muted)] mt-3 text-[14px]">Try widening the filters or reset to see every mandate.</p>
+              <button onClick={resetFilters} className="btn-ink mt-6">Reset filters <ArrowUpRight size={14} /></button>
+            </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {cases.map((c, i) => (
+              {filtered.map((c, i) => (
                 <button
                   key={c.id}
                   data-testid={`case-card-${c.id}`}
