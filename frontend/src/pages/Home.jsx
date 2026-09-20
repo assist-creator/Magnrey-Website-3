@@ -3,10 +3,10 @@ import { ArrowUpRight, Sparkles, Compass, Layers, Target, ShieldCheck, Cpu, Work
 import { Eyebrow, SectionHead, StatMonolith } from "@/components/Primitives";
 
 const PILLARS = [
-  { icon: Sparkles, no: "01", title: "Boutique by Design", body: "Senior-led engagements with high-touch, customised delivery. No junior consultants. No off-the-shelf models." },
-  { icon: Cpu, no: "02", title: "AI-Native Thinking", body: "We redesign work and workforce around AI-native architecture to elevate the People Function to a primary driver of enterprise value." },
-  { icon: Target, no: "03", title: "Outcome-Oriented", body: "Measurable ROI and long-term organisational stability. We prioritise value realisation over project volume." },
-  { icon: Layers, no: "04", title: "End-to-End Expertise", body: "Capabilities across operating, process, system, data and compliance — from strategy to implementation." },
+  { icon: Sparkles, no: "01", title: "Operating model design", body: "We redesign how work flows across people, process and technology to reduce friction and improve operational performance." },
+  { icon: Cpu, no: "02", title: "AI strategy & adoption", body: "We build practical AI capability aligned to governance, adoption and workforce design so transformation is sustainable." },
+  { icon: Target, no: "03", title: "Value realisation", body: "From business case to benefit tracking, we focus on measurable outcomes that leadership can defend and scale." },
+  { icon: Layers, no: "04", title: "Senior-led delivery", body: "Strategy, implementation and change management are led by experienced specialists who stay close to the work." },
 ];
 
 const STAGES = [
@@ -194,20 +194,76 @@ export default function Home() {
             <div className="md:col-span-8">
               <Eyebrow>Perspective from Leadership</Eyebrow>
               <blockquote className="font-serif-display italic text-[color:var(--ink)] text-3xl md:text-5xl leading-[1.15] mt-6">
-                “We engage at senior leadership level — providing the strategic challenge and execution certainty that only those who have <span className="text-[color:var(--gold)] not-italic">done the work</span> can offer.”
+                “I founded Magnrey Consulting with the purpose of helping organisations to maximise the value from AI and Digital, to enhance employee experience, improve operating margins, re-imagine the delivery of People services, and to partner with the client in <span className="text-[color:var(--gold)] not-italic">genuine collaboration to deliver outcomes.</span>”
               </blockquote>
               <div className="mt-10 flex items-center gap-4">
                 <div className="w-10 h-px bg-[color:var(--ink)]" />
                 <div>
                   <div className="font-semibold text-[color:var(--ink)]">Rinnieta Chrestien</div>
                   <div className="font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)] mt-1">
-                    Founding Partner · Former VP Human Resources, Salesforce
+                    Founding Partner · Magnrey Consulting
                   </div>
                 </div>
               </div>
               <Link to="/about" data-testid="founder-more" className="editorial-link mt-8 text-[color:var(--ink)] text-[14px] font-semibold">
                 Full profile <ArrowUpRight size={14} />
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIAL MARQUEE + CLIENTS */}
+      <section className="py-24 md:py-28 border-y border-[color:var(--hairline)]">
+        <div className="container-mag">
+          <SectionHead
+            eyebrow="Client Impact"
+            title="Transformation that is measurable, durable and leadership-ready."
+            description="We work alongside executive teams to turn AI and digital change into operational performance, employee experience and commercial value."
+          />
+        </div>
+        <div className="marquee overflow-hidden">
+          <div className="marquee-track flex gap-6 w-max px-6" data-testid="testimonial-marquee">
+            {[
+              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client" },
+              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader" },
+              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions" },
+              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client", dup: true },
+              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader", dup: true },
+              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions", dup: true },
+            ].map((t, i) => (
+              <article key={i} aria-hidden={t.dup} className="w-[360px] shrink-0 bg-[color:var(--bone)] border border-[color:var(--hairline)] p-6">
+                <div className="text-[color:var(--gold)] text-[13px] tracking-widest mb-3">★★★★★</div>
+                <p className="text-[14px] leading-relaxed text-[color:var(--ink)]">&ldquo;{t.q}&rdquo;</p>
+                <div className="mt-5 pt-4 border-t border-[color:var(--hairline)]">
+                  <div className="font-semibold text-[color:var(--ink)] text-[13.5px]">{t.r}</div>
+                  <div className="text-[11px] font-mono-brand tracking-wider uppercase text-[color:var(--muted)] mt-1">{t.c}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="container-mag mt-20">
+          <div className="rule-label mb-8"><span>Our Clients</span></div>
+          <div className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="marquee-track flex gap-4 w-max" data-testid="clients-marquee">
+              {[
+                "Global Financial Services Firm",
+                "Multinational Retailer",
+                "Global Logistics Enterprise",
+                "Manufacturing Group",
+                "Professional Services Firm",
+                "Global Financial Services Firm",
+                "Multinational Retailer",
+                "Global Logistics Enterprise",
+                "Manufacturing Group",
+                "Professional Services Firm",
+              ].map((c, i) => (
+                <div key={i} className="h-16 px-8 flex items-center justify-center border border-[color:var(--hairline)] bg-[color:var(--bone)] font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)] whitespace-nowrap">
+                  {c}
+                </div>
+              ))}
             </div>
           </div>
         </div>

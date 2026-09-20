@@ -1,20 +1,62 @@
 import { PageHero, Eyebrow } from "@/components/Primitives";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Target, Eye, Sparkles, Handshake, Linkedin } from "lucide-react";
 
-const EXPERTISE = [
-  "HR Operating Model Design",
-  "Workday",
-  "Salesforce Service Cloud",
-  "AI at Scale",
-  "Large-scale Change Management",
-  "M&A Integration",
-  "Workforce Planning",
-  "HR Data Strategy & Governance",
-  "GDPR / SOX Compliance",
-  "Advanced Analytics",
-  "C-Suite Engagement",
-  "Global People Leadership",
+const VALUES = [
+  {
+    icon: Target,
+    title: "Strategic Precision & Actionable Insight",
+    body: "Strategy without execution is just theory. Every solution is grounded in data-backed analysis and designed for real-world implementation — delivering measurable, quantifiable ROI rather than abstract advice.",
+  },
+  {
+    icon: Eye,
+    title: "Integrity & Transparent Advisory",
+    body: "Unbiased, honest guidance built on total clarity. Magnrey operates as an objective advisor focused entirely on the client's best interest, fostering deep trust, long-term alignment, and direct, candid communication.",
+  },
+  {
+    icon: Sparkles,
+    title: "Pragmatic & Future-Proof Innovation",
+    body: "Adaptability tailored to each business environment — embracing modern tools and methodologies without losing sight of fundamental business mechanics — to equip organisations with sustainable, scalable solutions built to endure market shifts.",
+  },
+  {
+    icon: Handshake,
+    title: "Collaborative Ownership & Partnership",
+    body: "Working alongside client teams as an embedded partner rather than an external observer, ensuring seamless knowledge transfer, team alignment, and internal capability building beyond project completion.",
+  },
+];
+
+const EXPERTISE_GROUPS = [
+  {
+    title: "AI & HR Digital Transformation",
+    items: [
+      ["Agentic & Generative AI Integration", "Implementing AI agents, automated agentic workflows, and workforce augmentation strategies to redesign modern work."],
+      ["HCM Technology Platforms", "Strategy, execution, and optimisation across enterprise HR platforms, including Workday, Salesforce Service Cloud, and agentic platforms."],
+      ["HR Products & Experience", "Enhancing employee experience through human-centred, AI-empowered digital solutions."],
+    ],
+  },
+  {
+    title: "Operating Model Strategy & Global Service Delivery",
+    items: [
+      ["HR Operating Model Design", "Transforming HR functions, establishing scalable HR operating models, and optimising global capability centers (GCCs)."],
+      ["Global Operations at Scale", "Operationalising and localising enterprise HR policies across diverse international jurisdictions (27+ countries)."],
+      ["Workforce & Location Strategy", "Strategic workforce planning, skill-mapping, and global location strategies for high-growth tech enterprises."],
+    ],
+  },
+  {
+    title: "Data Strategy, Governance & Compliance",
+    items: [
+      ["HR Analytics & Governance", "Establishing data strategies, advanced HR analytics, and robust governance models."],
+      ["Global Regulatory Compliance", "Managing cross-border compliance, risk, and audit frameworks across SOX, GDPR, security, and statutory requirements."],
+    ],
+  },
+  {
+    title: "Executive Leadership & Change Management",
+    items: [
+      ["C-Suite Advisory & Stakeholder Engagement", "Trusted advisor to executive teams on organisational design, M&A integration, and leadership capability."],
+      ["Large-Scale Change Management", "Guiding organisations through cultural transformation, shift-to-agentic mindsets, and complex change."],
+      ["Global Team Leadership", "Championing high-performing, cross-cultural teams and fostering diverse, inclusive workforces."],
+    ],
+  },
 ];
 
 export default function About() {
@@ -22,55 +64,99 @@ export default function About() {
     <div data-testid="page-about">
       <PageHero
         kicker="007 — About"
-        eyebrow="The Practitioners"
-        title="We are former executives."
+        eyebrow="About Us"
+        title="Practitioners."
         italicTail="Not career consultants."
-        description="We have stood in your shoes. We bring the battle-tested insight required to move beyond theoretical strategy into sustainable, operational reality."
+        description="We have stood in your shoes. We bring the battle-tested insight required to move beyond theoretical strategy into sustainable, operational reality. At Magnrey Consulting, we bridge high-level strategy and operational execution and empower organisations to navigate complex business landscapes."
       />
 
       <section className="py-20 md:py-28">
-        <div className="container-mag grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5">
-            <div className="aspect-[4/5] w-full overflow-hidden border border-[color:var(--hairline-strong)]">
-              <img
-                data-testid="about-founder-portrait"
-                src="/brand/founder.webp"
-                alt="Rinnieta Chrestien, Founding Partner"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <div className="mt-6 flex items-center justify-between">
-              <div>
-                <div className="font-serif-display text-2xl text-[color:var(--ink)]">Rinnieta Chrestien</div>
-                <div className="font-mono-brand text-[11px] tracking-[0.24em] uppercase text-[color:var(--gold)] mt-2">Founding Partner</div>
+        <div className="container-mag">
+          <Eyebrow>Core Value Pillars</Eyebrow>
+          <h2 className="font-serif-display text-3xl md:text-5xl mt-4 text-[color:var(--ink)] leading-tight max-w-2xl">
+            What we hold ourselves to.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14" data-testid="about-values">
+            {VALUES.map((v, i) => (
+              <div key={v.title} data-testid={`about-value-${i}`} className="card-editorial group">
+                <div className="w-11 h-11 border border-[color:var(--ink)] flex items-center justify-center text-[color:var(--ink)] group-hover:bg-[color:var(--ink)] group-hover:text-[color:var(--gold)] transition-colors">
+                  <v.icon size={18} strokeWidth={1.5} />
+                </div>
+                <h3 className="font-serif-display text-[22px] mt-6 leading-tight text-[color:var(--ink)]">{v.title}</h3>
+                <p className="text-[14px] leading-relaxed text-[color:var(--muted)] mt-3">{v.body}</p>
               </div>
-              <a href="mailto:assist@magnrey.com" className="editorial-link text-[13px] font-semibold text-[color:var(--ink)]">
-                Direct enquiry <ArrowUpRight size={14} />
-              </a>
-            </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="lg:col-span-7">
-            <Eyebrow>Founding Partner</Eyebrow>
-            <h2 className="font-serif-display text-3xl md:text-5xl mt-4 leading-[1.1] text-[color:var(--ink)]">
-              A results-oriented HR executive with 18+ years leading large-scale HR transformation, digital strategy and operating-model redesign across complex global organisations of 75,000+ employees.
-            </h2>
-            <p className="text-[16px] leading-relaxed text-[color:var(--muted)] mt-8">
-              Formerly VP Human Resources at Salesforce, where she led a diverse global team across JAPAC, Americas and Europe spanning 27 countries. Her practice combines deep operational fluency with the executive credibility required to engage boards and C-suites as peers.
-            </p>
-            <blockquote className="mt-10 border-l-2 border-[color:var(--gold)] pl-6 font-serif-display italic text-[color:var(--ink)] text-2xl md:text-3xl leading-snug">
-              “We engage at senior leadership level — providing the strategic challenge and execution certainty that only those who have done the work can offer.”
-            </blockquote>
+      <section className="bg-[color:var(--paper-2)] border-y border-[color:var(--hairline)] py-20 md:py-28">
+        <div className="container-mag">
+          <Eyebrow>Leadership</Eyebrow>
+          <h2 className="font-serif-display text-3xl md:text-5xl mt-4 text-[color:var(--ink)] leading-tight">
+            The people behind Magnrey.
+          </h2>
 
-            <div className="mt-12">
-              <div className="rule-label mb-5"><span>Areas of Expertise</span></div>
-              <div className="flex flex-wrap gap-2">
-                {EXPERTISE.map((e) => (
-                  <span key={e} className="px-3 py-2 text-[12.5px] border border-[color:var(--hairline-strong)] bg-[color:var(--bone)] text-[color:var(--ink)]">
-                    {e}
-                  </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-16">
+            <div className="lg:col-span-4">
+              <div className="aspect-[4/5] w-full overflow-hidden border border-[color:var(--hairline-strong)]">
+                <img
+                  data-testid="about-founder-portrait"
+                  src="/brand/founder.webp"
+                  alt="Rinnieta Chrestien, Partner & Co-Founder"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="mt-6">
+                <div className="font-serif-display text-2xl text-[color:var(--ink)]">Rinnieta Chrestien</div>
+                <div className="font-mono-brand text-[11px] tracking-[0.24em] uppercase text-[color:var(--gold)] mt-2">Partner &amp; Co-Founder</div>
+                <a
+                  href="https://www.linkedin.com/in/rinnieta-chrestien/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-[13px] font-semibold text-[color:var(--ink)] editorial-link"
+                  data-testid="founder-linkedin"
+                >
+                  <Linkedin size={14} /> View LinkedIn Profile <ArrowUpRight size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8">
+              <div className="space-y-5 text-[16px] leading-[1.8] text-[color:var(--muted)]">
+                <p>
+                  Rinnieta Chrestien is an experienced executive HR leader and strategic advisor specialising in AI-driven HR transformation, operating model design, and global service delivery for enterprise-scale organisations (75K+ users).
+                </p>
+                <p>
+                  With nearly two decades of leadership scaling HR functions at top global tech companies, Rinnieta brings a deep track record of aligning people strategy with cutting-edge technology. Most recently, she served as Vice President of Human Resources at Salesforce, where she spent 9 years leading global teams across 10 countries and driving end-to-end operational execution across JAPAC, the Americas, and Europe. Prior to Salesforce, she was General Manager of Recruitment &amp; HR Operations at Fujitsu Australia &amp; New Zealand.
+                </p>
+                <p>
+                  At Magnrey Consulting, Rinnieta partners with C-suite and HR executive leaders to design future-ready workforce strategies, implement agentic AI and HCM technologies, and lead complex organisational transformations from strategy through execution.
+                </p>
+              </div>
+
+              <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 pt-10 border-t border-[color:var(--hairline)]" data-testid="expertise-grid">
+                {EXPERTISE_GROUPS.map((g) => (
+                  <div key={g.title}>
+                    <div className="rule-label mb-4"><span>{g.title}</span></div>
+                    <ul className="space-y-3">
+                      {g.items.map(([label, desc]) => (
+                        <li key={label} className="flex gap-3 text-[14px] leading-relaxed">
+                          <span className="text-[color:var(--gold)] mt-0.5">■</span>
+                          <span className="text-[color:var(--muted)]">
+                            <strong className="text-[color:var(--ink)]">{label}:</strong> {desc}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
+
+              <p className="mt-12 pt-6 border-t border-[color:var(--hairline)] text-[13.5px] font-mono-brand tracking-[0.18em] uppercase text-[color:var(--muted)]">
+                M.Sc. in Human Resources — The London School of Economics and Political Science (LSE)
+              </p>
             </div>
           </div>
         </div>

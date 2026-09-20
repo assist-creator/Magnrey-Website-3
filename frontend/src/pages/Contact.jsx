@@ -68,11 +68,11 @@ export default function Contact() {
   return (
     <div data-testid="page-contact">
       <PageHero
-        kicker="008 — Begin the Conversation"
-        eyebrow="How to Engage"
-        title="Begin with a 45-minute"
-        italicTail="diagnostic conversation."
-        description="Every partnership begins here. This precision-focused session allows us to understand your current digital maturity and identify the high-impact AI opportunities that will move the needle for your People organisation. No obligation. No junior handoffs."
+        kicker="008 — Get in Touch"
+        eyebrow="Real Conversations"
+        title="Real conversations."
+        italicTail="Not sales pitches."
+        description="Speak with experienced practitioners who understand your challenges. Bounce some ideas or have an open conversation on how we can help. No obligation. No junior handoffs — you speak directly with a senior practitioner from day one."
       />
 
       <section className="py-16 md:py-24">
