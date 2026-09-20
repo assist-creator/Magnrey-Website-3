@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Sparkles, Compass, Layers, Target, ShieldCheck, Cpu, Workflow } from "lucide-react";
-import { Eyebrow, SectionHead, StatMonolith } from "@/components/Primitives";
+import { Eyebrow, SectionHead } from "@/components/Primitives";
 
 const PILLARS = [
   { icon: Sparkles, no: "01", title: "Operating model design", body: "We redesign how work flows across people, process and technology to reduce friction and improve operational performance." },
@@ -29,10 +29,9 @@ export default function Home() {
       {/* HERO */}
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
         <div className="container-mag">
-          <div className="rule-label mb-10 rise"><span>001 — AI · Digital · People Consulting</span></div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-8">
-              <Eyebrow testId="hero-eyebrow">Boutique Advisory · Est. MMXXVI</Eyebrow>
+      <Eyebrow testId="hero-eyebrow">Boutique Advisory</Eyebrow>
               <h1 className="font-serif-display font-normal tracking-[-0.02em] leading-[0.96] mt-8 text-[52px] sm:text-[68px] md:text-[92px] lg:text-[112px] text-[color:var(--ink)] rise rise-1">
                 Transformation,
                 <br />
@@ -66,11 +65,7 @@ export default function Home() {
                   <span className="font-mono-brand text-[11px] tracking-[0.24em] uppercase text-white/60 ml-2">Years</span>
                 </div>
                 <p className="text-white/60 text-[14px] mt-3">Global Strategic HR & AI Leadership Experience</p>
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="font-serif-display text-3xl text-[color:var(--bone)] leading-none">27</div>
-                    <div className="font-mono-brand text-[10px] tracking-[0.24em] uppercase text-white/50 mt-2">Countries</div>
-                  </div>
+                <div className="mt-6">
                   <div>
                     <div className="font-serif-display text-3xl text-[color:var(--bone)] leading-none">75<span className="text-[color:var(--gold)]">k</span>+</div>
                     <div className="font-mono-brand text-[10px] tracking-[0.24em] uppercase text-white/50 mt-2">Employees Reached</div>
@@ -84,13 +79,61 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Stat strip */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
-            <StatMonolith value="18+" label="Years HR Transformation" sub="Founding Partner" />
-            <StatMonolith value="27" label="Countries · JAPAC · EMEA · Americas" />
-            <StatMonolith value="0" label="Junior Handoffs" sub="Senior-led every engagement" />
-            <StatMonolith value="100%" label="Executive Delivery" />
+      {/* TESTIMONIAL MARQUEE + CLIENTS */}
+      <section className="py-24 md:py-28 border-y border-[color:var(--hairline)]">
+        <div className="container-mag">
+          <SectionHead
+            eyebrow="Client Impact"
+            title="Transformation that is measurable, durable and leadership-ready."
+            description="We work alongside executive teams to turn AI and digital change into operational performance, employee experience and commercial value."
+          />
+        </div>
+        <div className="marquee overflow-hidden">
+          <div className="marquee-track flex gap-6 w-max px-6" data-testid="testimonial-marquee">
+            {[
+              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client" },
+              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader" },
+              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions" },
+              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client", dup: true },
+              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader", dup: true },
+              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions", dup: true },
+            ].map((t, i) => (
+              <article key={i} aria-hidden={t.dup} className="w-[360px] shrink-0 bg-[color:var(--bone)] border border-[color:var(--hairline)] p-6">
+                <div className="text-[color:var(--gold)] text-[13px] tracking-widest mb-3">★★★★★</div>
+                <p className="text-[14px] leading-relaxed text-[color:var(--ink)]">&ldquo;{t.q}&rdquo;</p>
+                <div className="mt-5 pt-4 border-t border-[color:var(--hairline)]">
+                  <div className="font-semibold text-[color:var(--ink)] text-[13.5px]">{t.r}</div>
+                  <div className="text-[11px] font-mono-brand tracking-wider uppercase text-[color:var(--muted)] mt-1">{t.c}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="container-mag mt-32">
+          <div className="rule-label mb-8"><span>Our Clients</span></div>
+          <div className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+            <div className="marquee-track flex gap-4 w-max" data-testid="clients-marquee">
+              {[
+                "Global Financial Services Firm",
+                "Multinational Retailer",
+                "Global Logistics Enterprise",
+                "Manufacturing Group",
+                "Professional Services Firm",
+                "Global Financial Services Firm",
+                "Multinational Retailer",
+                "Global Logistics Enterprise",
+                "Manufacturing Group",
+                "Professional Services Firm",
+              ].map((c, i) => (
+                <div key={i} className="h-16 px-8 flex items-center justify-center border border-[color:var(--hairline)] bg-[color:var(--bone)] font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)] whitespace-nowrap">
+                  {c}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -208,62 +251,6 @@ export default function Home() {
               <Link to="/about" data-testid="founder-more" className="editorial-link mt-8 text-[color:var(--ink)] text-[14px] font-semibold">
                 Full profile <ArrowUpRight size={14} />
               </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIAL MARQUEE + CLIENTS */}
-      <section className="py-24 md:py-28 border-y border-[color:var(--hairline)]">
-        <div className="container-mag">
-          <SectionHead
-            eyebrow="Client Impact"
-            title="Transformation that is measurable, durable and leadership-ready."
-            description="We work alongside executive teams to turn AI and digital change into operational performance, employee experience and commercial value."
-          />
-        </div>
-        <div className="marquee overflow-hidden">
-          <div className="marquee-track flex gap-6 w-max px-6" data-testid="testimonial-marquee">
-            {[
-              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client" },
-              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader" },
-              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions" },
-              { q: "Magnrey didn't just advise us on AI adoption — they sat beside our team through every stage of execution. The operating model they helped us build is one we could actually sustain internally, not a slide deck we outgrew in a quarter.", r: "Chief People Officer", c: "Global Enterprise Client", dup: true },
-              { q: "What stood out was the discipline. Every recommendation came with a measurable outcome attached. Six months in, we could point to exactly where the value had landed.", r: "VP of HR Operations", c: "Technology & Services Leader", dup: true },
-              { q: "Genuine collaboration, not a hand-off. Magnrey's team operated as an extension of ours, which made the technology and the people side of the transformation move together instead of competing for airtime.", r: "Head of Digital Transformation", c: "Enterprise Solutions", dup: true },
-            ].map((t, i) => (
-              <article key={i} aria-hidden={t.dup} className="w-[360px] shrink-0 bg-[color:var(--bone)] border border-[color:var(--hairline)] p-6">
-                <div className="text-[color:var(--gold)] text-[13px] tracking-widest mb-3">★★★★★</div>
-                <p className="text-[14px] leading-relaxed text-[color:var(--ink)]">&ldquo;{t.q}&rdquo;</p>
-                <div className="mt-5 pt-4 border-t border-[color:var(--hairline)]">
-                  <div className="font-semibold text-[color:var(--ink)] text-[13.5px]">{t.r}</div>
-                  <div className="text-[11px] font-mono-brand tracking-wider uppercase text-[color:var(--muted)] mt-1">{t.c}</div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="container-mag mt-20">
-          <div className="rule-label mb-8"><span>Our Clients</span></div>
-          <div className="marquee overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-            <div className="marquee-track flex gap-4 w-max" data-testid="clients-marquee">
-              {[
-                "Global Financial Services Firm",
-                "Multinational Retailer",
-                "Global Logistics Enterprise",
-                "Manufacturing Group",
-                "Professional Services Firm",
-                "Global Financial Services Firm",
-                "Multinational Retailer",
-                "Global Logistics Enterprise",
-                "Manufacturing Group",
-                "Professional Services Firm",
-              ].map((c, i) => (
-                <div key={i} className="h-16 px-8 flex items-center justify-center border border-[color:var(--hairline)] bg-[color:var(--bone)] font-mono-brand text-[11px] tracking-[0.2em] uppercase text-[color:var(--muted)] whitespace-nowrap">
-                  {c}
-                </div>
-              ))}
             </div>
           </div>
         </div>

@@ -56,7 +56,6 @@ export function PageHero({ eyebrow, kicker, title, italicTail, description }) {
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 border-b border-[color:var(--hairline)]">
       <div className="container-mag">
-        <div className="rule-label mb-8"><span>{kicker}</span></div>
         <div className="max-w-4xl">
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1 className="font-serif-display font-normal tracking-tight leading-[1.05] mt-6 text-4xl md:text-6xl lg:text-7xl text-[color:var(--ink)]">

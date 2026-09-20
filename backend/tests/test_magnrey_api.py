@@ -53,6 +53,49 @@ def test_booking_slots(s):
     assert isinstance(slots, list) and len(slots) > 0
     for sl in slots[:3]:
         assert "iso" in sl and "date_label" in sl and "time_label" in sl
+    # Expect up to 20 slots (2 per weekday x 10 weekdays -> filter out booked)
+    assert len(slots) <= 20
+    # verify times are 10:00 and 14:00
+    times = {sl["time_label"] for sl in slots}
+    assert times.issubset({"10:00", "14:00"})
+
+
+def test_insights_seed_content(s):
+    r = s.get(f"{BASE_URL}/api/insights", timeout=15)
+    assert r.status_code == 200
+    ins = r.json()["insights"]
+    # at least 7 seeded (could have TEST leftovers but should still contain 7 seeds)
+    ids = {x["id"] for x in ins}
+    for expected in [
+        "agentic-hr-operating-model",
+        "agentic-ai-operating-model",
+        "scaling-global-capability-centers",
+        "data-governance-75k-records",
+        "leading-change-agentic",
+        "risk-scored-ai-roadmap",
+        "regional-to-unified-global-hr",
+    ]:
+        assert expected in ids, f"Missing seeded insight {expected}"
+    featured = [x for x in ins if x["id"] == "agentic-hr-operating-model"][0]
+    assert featured.get("featured") is True
+
+
+def test_case_studies_seed_content(s):
+    r = s.get(f"{BASE_URL}/api/case-studies", timeout=15)
+    assert r.status_code == 200
+    cases = r.json()["case_studies"]
+    headlines = {c["headline"] for c in cases}
+    assert "70% of manual HR transactions automated in 9 months" in headlines
+    # 5 seeded
+    ids = {c["id"] for c in cases}
+    for expected in [
+        "regulatory-challenge-financial-services",
+        "legacy-migration-manufacturing",
+        "workforce-analytics-retail",
+        "ai-adoption-roadmap-logistics",
+        "talent-retention-professional-services",
+    ]:
+        assert expected in ids, f"Missing seeded case study {expected}"
 
 
 def test_create_lead_with_slot(s):
