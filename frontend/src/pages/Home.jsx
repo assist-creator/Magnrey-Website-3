@@ -31,7 +31,7 @@ export default function Home() {
         <div className="container-mag">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-8">
-      <Eyebrow testId="hero-eyebrow">Boutique Advisory</Eyebrow>
+      <Eyebrow testId="hero-eyebrow">AI &amp; Digital People Consulting</Eyebrow>
               <h1 className="font-serif-display font-normal tracking-[-0.02em] leading-[0.96] mt-8 text-[52px] sm:text-[68px] md:text-[92px] lg:text-[112px] text-[color:var(--ink)] rise rise-1">
                 Transformation,
                 <br />
