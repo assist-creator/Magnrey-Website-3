@@ -107,7 +107,7 @@ export default function CaseStudies() {
                   className="card-editorial text-left group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="eyebrow">Dossier · 0{i + 1}</span>
+                    <span className="eyebrow">Case Study · 0{i + 1}</span>
                     <ArrowUpRight size={18} className="text-[color:var(--muted)] group-hover:text-[color:var(--gold)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                   </div>
                   <h3 className="font-serif-display text-2xl md:text-3xl mt-6 leading-tight text-[color:var(--ink)]">{c.headline}</h3>

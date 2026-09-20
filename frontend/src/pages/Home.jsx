@@ -53,12 +53,6 @@ export default function Home() {
 
             <div className="lg:col-span-4 rise rise-4">
               <div className="ink-block relative p-8 md:p-10 border border-[color:var(--gold)]/30">
-                <div className="flex items-center justify-between hairline-b pb-4 mb-6">
-                  <span className="eyebrow">Performance Telemetry</span>
-                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-[color:var(--gold)]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[color:var(--gold)] pulse-dot" /> Active
-                  </span>
-                </div>
                 <div className="flex items-baseline gap-3">
                   <span className="font-serif-display text-6xl md:text-7xl text-[color:var(--bone)] leading-none">25</span>
                   <span className="font-serif-display text-4xl text-[color:var(--gold)]">+</span>
